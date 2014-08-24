@@ -1,0 +1,5 @@
+---
+- name: apply common configuration to all archlinux nodes
+  hosts: local
+  roles:
+    - commons

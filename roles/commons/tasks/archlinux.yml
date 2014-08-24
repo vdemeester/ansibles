@@ -1,0 +1,18 @@
+---
+- name: Install ntp (pacman)
+  pacman: name=ntp state=present
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Install vim (pacman)
+  pacman: name=vim state=present
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Install tmux (pacman)
+  pacman: name=tmux state=present
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Install htop (pacman)
+  pacman: name=htop state=present
+  when: ansible_pkg_mgr == "pacman"
+
+
