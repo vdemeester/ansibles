@@ -3,20 +3,10 @@
   pacman: name=ntp state=present
   when: ansible_pkg_mgr == "apt"
 
-- name: Install vim (apt)
-  pacman: name=vim state=present
-  tags: 
-    - vim
+- name: Install minimals (apt)
+  pacman: name=vim,tmux,htop,tree state=present
   when: ansible_pkg_mgr == "apt"
 
-- name: Install tmux (apt)
-  pacman: name=tmux state=present
-  tags:
-    - tmux
-  when: ansible_pkg_mgr == "apt"
-
-- name: Install htop (apt)
-  pacman: name=htop state=present
-  tags:
-    - htop
+- name: Install backups (apt)
+  pacman: name=obnam state=present
   when: ansible_pkg_mgr == "apt"
