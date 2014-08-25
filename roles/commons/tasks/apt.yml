@@ -1,12 +1,12 @@
 ---
 - name: Install ntp (apt)
-  pacman: name=ntp state=present
+  apt: name=ntp state=present
   when: ansible_pkg_mgr == "apt"
 
 - name: Install minimals (apt)
-  pacman: name=vim,tmux,htop,tree state=present
+  apt: name=vim,tmux,htop,tree state=present
   when: ansible_pkg_mgr == "apt"
 
 - name: Install backups (apt)
-  pacman: name=obnam state=present
+  apt: name=obnam state=present
   when: ansible_pkg_mgr == "apt"
