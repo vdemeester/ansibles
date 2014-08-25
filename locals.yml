@@ -1,5 +1,8 @@
 ---
+# Archlinux add pacman.d files instead of editing
 - name: apply common configuration to all archlinux nodes
   hosts: local
   roles:
     - commons
+    - arch-repos
+    - arch-desktop

@@ -1,0 +1,12 @@
+[git-annex]
+Server = https://fichiers.schnouki.net/archlinux/git-annex/repo/$arch
+SigLevel = Optional TrustAll
+
+[haskell-core]
+Server = http://xsounds.org/~haskell/core/$arch
+
+[sbr]
+Server = http://pkg.sbr.pm/archlinux/$arch
+
+[archlinuxfr]
+Server = http://repo.archlinux.fr/$arch

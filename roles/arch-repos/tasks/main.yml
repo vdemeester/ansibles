@@ -1,0 +1,10 @@
+---
+# Archlinux repostiories
+- name: Add custom repo group include line
+  lineinfile: dest=/etc/pacman.conf regexp="^Include \= \/etc/pacman\.d/sbr" line="Include = /etc/pacman.d/sbr"
+
+- name: Copy in custom repo config file
+  copy: src=templates/sbr-pacman-conf dest=/etc/pacman.d/sbr
+
+- name: Add keys to pacman
+  raw: pacman-key -r 4209170B && pacman-key --lsign-key 4209170B && pacman-key -r 634256FA && pacman-key --lsign-key 634256FA && pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58

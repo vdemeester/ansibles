@@ -1,0 +1,8 @@
+---
+# Archlinux repostiories
+- name: Add custom repo group include line
+  lineinfile: dest=/etc/pacman.conf regexp="^Include \= \/etc/pacman\.d/infinality" line="Include = /etc/pacman.d/infinality"
+
+- name: Copy in custom repo config file
+  copy: src=templates/infinality-bundle-pacman-conf dest=/etc/pacman.d/infinality
+
