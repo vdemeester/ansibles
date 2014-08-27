@@ -6,3 +6,22 @@
 - name: Copy in custom repo config file
   copy: src=templates/infinality-bundle-pacman-conf dest=/etc/pacman.d/infinality
 
+- name: Install fonts
+  pacman: name=fontconfig-infinality-ultimate,freetype2-infinality-ultimate,cairo-infinality-ultimate,ibfonts-meta-base,ibfonts-meta-extended,ibfonts-meta-extended-lt,ttf-symbola state=present
+
+- name: Install main packages (xorg required)
+  pacman: name=xorg-server,xorg-server-utils,xorg-xinit,xorg-xinput,xorg-xev,xorg-xrdb,xorg-xset,xorg-xmessage,xdg-utils,xdg-user-dirs,xf86-input-evdev,sbr-keymaps,xterm,rxvt-unicode,polkit state=present
+
+- name: Add default keyboard configuration (fr)
+  copy: src=10-keyboard.conf dest=/usr/share/X11/xorg.conf.d/10-keyboard.conf
+
+- name: Add Personal bepo keyboard configuration with typematrix
+  copy: src=10-typematrix.conf dest=/usr/share/X11/xorg.conf.d/10-typematrix.conf
+
+- name: Add SliM & themes
+  pacman: name=slim state=present
+
+- name: Enable SliM
+  shell: systemctl enable slim
+
+# wmname

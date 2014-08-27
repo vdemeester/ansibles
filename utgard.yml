@@ -1,8 +1,10 @@
 ---
 # Archlinux add pacman.d files instead of editing
 - name: apply common configuration to all archlinux nodes
-  hosts: local
+  hosts: utgard
   roles:
     - commons
     - arch-repos
+    - nvidia
     - arch-desktop
+

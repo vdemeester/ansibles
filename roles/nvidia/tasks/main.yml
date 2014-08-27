@@ -1,0 +1,12 @@
+---
+# Nvidia install
+- name: Remove mesa-libgl
+  pacman: name=mesa-libgl state=absent
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Install nvidia (pacman)
+  pacman: name=nvidia state=present
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Copy 20-nvidia.conf
+  copy: src=20-nvidia.conf dest=/etc/X11/xorg.conf.d/20-nvidia.conf
