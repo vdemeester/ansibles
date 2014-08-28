@@ -7,4 +7,4 @@
     - fig
 
 - name: Add user to docker
-  user: name={{ admin}} groups=docker append=yes
+  user: name={{ admin_user }} groups=docker append=yes
