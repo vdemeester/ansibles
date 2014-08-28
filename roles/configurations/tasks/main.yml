@@ -1,21 +1,43 @@
 ---
 # Configuration management
-- name: install required softwares (pacman)
-  pacman: name=vcsh,mr,git,curl,wget state=present
+- name: Install required softwares (pacman)
+  pacman: name={{ item }} state=present
+  with_items:
+    - vcsh-git
+    - mr
+    - git
+    - curl
+    - wget
   when: ansible_pkg_mgr == "pacman"
 
 # FIXME verify that versions are ok
-- name: install required software (apt)
-  apt: name=vcsh,mr,git,curl,wget state=present
+- name: Install required software (apt)
+  apt: name={{ item }} state=present
+  with_items:
+    - vcsh
+    - mr
+    - git
+    - curl
+    - wget
   when: ansible_pkg_mgr == "apt"
 
-- name: bootstrap vcsh configuration (vcsh_home)
+- name: Bootstrap vcsh configuration (vcsh_home)
   shell: SKIP_MRI=1 curl -sSL "https://raw.github.com/vdemeester/vcsh-home/bootstrap/bootstrap.sh" | bash creates="/home/{{ admin_user }}/.config/vcsh/repo.d/vcsh-home.git/config"
   sudo: yes
   sudo_user: "{{ admin_user }}"
 
-- name: first update after bootstrap (mr u)
-  shell: mr u
+- name: Install scripts
+  shell: vcsh clone git://github.com/vdemeester/scripts.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/scripts.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
+
+- name: Install tmux configuration
+  shell: vcsh clone git://github.com/vdemeester/tmux-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/tmux-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
+
+- name: Install vim configuration
+  shell: vcsh clone git://github.com/vdemeester/vim-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/vim-config.git/config"
   sudo: yes
   sudo_user: "{{ admin_user }}"
   

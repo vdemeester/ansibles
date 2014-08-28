@@ -13,7 +13,7 @@
     - arch-desktop-awesome
   tasks:
     - name: "Update configurations"
-      shell: mr u
+      shell: zsh -c "mr u"
       sudo: yes
       sudo_user: "{{ admin_user }}"
 
