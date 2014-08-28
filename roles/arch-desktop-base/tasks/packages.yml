@@ -6,6 +6,8 @@
     - git-annex-bin
     - keychain
     - profile-sync-daemon
+    - udiskie
+    - libnotify
 
 - name: Install web related packages
   pacman: name={{ item }} state=present

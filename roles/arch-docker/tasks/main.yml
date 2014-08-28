@@ -8,3 +8,6 @@
 
 - name: Add user to docker
   user: name={{ admin_user }} groups=docker append=yes
+
+- name: Enable docker service
+  shell: systemctl enable docker creates=/usr/lib/systemd/system/docker.socket

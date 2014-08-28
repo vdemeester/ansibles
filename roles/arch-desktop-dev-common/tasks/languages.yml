@@ -8,6 +8,7 @@
     - python2-pip
     - python-virtualenv
     - python-virtualenvwrapper
+    - ipython
 
 - name: Get python-config (vcsh)
   shell: vcsh clone git://github.com/vdemeester/python-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/python-config.git/config"
