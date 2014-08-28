@@ -1,0 +1,4 @@
+---
+# Ansible \o/
+- name: Install ansible
+  pacman: name=ansible state=present

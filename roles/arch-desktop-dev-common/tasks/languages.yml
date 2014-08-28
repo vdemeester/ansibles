@@ -1,0 +1,40 @@
+---
+# Languages
+- name: Install python stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - python2
+    - python-pip
+    - python2-pip
+    - python-virtualenv
+    - python-virtualenvwrapper
+
+- name: Get python-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/python-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/python-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
+
+- name: Install ruby stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - libxml2
+    - libxslt
+    - rbenv
+    - ruby-build
+
+- name: Get ruby-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/ruby-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/ruby-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"  
+
+- name: Install haskell stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - ghc
+    - cabal-install
+    - cabal-dev
+
+- name: Get haskell-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/haskell-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/haskell-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"  

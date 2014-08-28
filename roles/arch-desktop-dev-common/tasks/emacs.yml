@@ -1,0 +1,9 @@
+---
+# Emacs stuff
+- name: Install emacs
+  pacman: name=emacs state=present
+
+- name: Install emacs configuration
+  shell: vcsh clone git://github.com/vdemeester/emacs-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/emacs-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"

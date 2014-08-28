@@ -1,0 +1,19 @@
+---
+# Java stuff
+- name: Install language
+  pacman: name={{ item }} state=present
+  with_items:
+    - jdk7-openjdk
+    - jdk8-openjdk
+    - jdk7-compat
+    - groovy
+
+- name: Install build tools
+  pacman: name={{ item }} state=present
+  with_items:
+    - intellij-idea-13-ultimate
+
+- name: Get java-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/java-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/java-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"  

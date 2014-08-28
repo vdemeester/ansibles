@@ -1,0 +1,30 @@
+---
+# desktop additionnal packages
+- name: Install utilities
+  pacman: name={{ item }} state=present
+  with_items:
+    - git-annex-bin
+    - keychain
+    - profile-sync-daemon
+
+- name: Install web related packages
+  pacman: name={{ item }} state=present
+  with_items:
+    - firefox
+    - google-chrome
+
+- name: Install multimedia packages
+  pacman: name={{ item }} state=present
+  with_items:
+    - beets
+    - mpv
+    - ffmpeg
+    - mencoder
+    - mpc
+    - ncmpcpp
+
+- name: Install archlinux stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - burp
+    - cower

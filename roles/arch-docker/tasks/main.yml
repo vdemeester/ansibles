@@ -1,0 +1,10 @@
+---
+# Docker on Archlinux
+- name: Install docker & stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - docker
+    - fig
+
+- name: Add user to docker
+  user: name={{ admin}} groups=docker append=yes

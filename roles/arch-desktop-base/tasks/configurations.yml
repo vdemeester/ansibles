@@ -1,0 +1,6 @@
+---
+# Get xorg configurations
+- name: Get xorg-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/xorg-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/xorg-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"

@@ -1,0 +1,10 @@
+---
+# Common dev stuf
+- include: emacs.yml tags=emacs
+- include: vcs.yml tags=vcs
+- include: languages.yml tags=languages
+
+- name: Install utilities
+  pacman: name={{ item }} state=present
+  with_items:
+    - lnav

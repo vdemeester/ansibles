@@ -1,0 +1,13 @@
+---
+# Source control
+- name: Install vcs
+  pacman: name={{ item }} state=present
+  with_items:
+    - subversion
+    - git
+    - mercurial
+
+- name: Get git-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/git-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/git-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"  

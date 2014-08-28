@@ -1,0 +1,17 @@
+---
+# Slim tasks
+
+- name: Add SliM & themes
+  pacman: name=slim state=present
+
+# TODO Add themes by hosts (install slim-sbr-themes and set the right one)
+
+- name: Enable SliM
+  shell: systemctl enable slim creates=/usr/lib/systemd/system/slim.service
+
+- name: Configure SliM
+  template: src=slim.conf.j2 dest=/etc/slim.conf owner=root mode=0644
+
+- name: Configure SliM lock
+  template: src=slimlock.conf.j2 dest=/etc/slimlock.conf owner=root mode=0644
+

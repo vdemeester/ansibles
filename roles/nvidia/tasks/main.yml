@@ -5,8 +5,9 @@
   when: ansible_pkg_mgr == "pacman"
 
 - name: Install nvidia (pacman)
-  pacman: name=nvidia state=present
+  pacman: name=nvidia,libvdpau-va-gl state=present
   when: ansible_pkg_mgr == "pacman"
 
 - name: Copy 20-nvidia.conf
   copy: src=20-nvidia.conf dest=/etc/X11/xorg.conf.d/20-nvidia.conf
+

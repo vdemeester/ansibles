@@ -11,6 +11,10 @@
     - configurations
     - arch-desktop-base
     - arch-desktop-awesome
+    - arch-desktop-dev-common
+    - arch-desktop-dev-java
+    - arch-docker
+    - ansible-host
   tasks:
     - name: "Update configurations"
       shell: zsh -c "mr u"
