@@ -12,6 +12,9 @@
 - name: Install main packages (xorg required)
   pacman: name=xorg-server,xorg-server-utils,xorg-xinit,xorg-xinput,xorg-xev,xorg-xrdb,xorg-xset,xorg-xmessage,xdg-utils,xdg-user-dirs,xf86-input-evdev,sbr-keymaps,xterm,rxvt-unicode,polkit state=present
 
+- name: Install additonnal packages
+  pacman: name=scrot state=present
+
 - name: Add default keyboard configuration (fr)
   copy: src=10-keyboard.conf dest=/usr/share/X11/xorg.conf.d/10-keyboard.conf
 
@@ -24,7 +27,7 @@
 # TODO Add themes by hosts (install slim-sbr-themes and set the right one)
 
 - name: Enable SliM
-  shell: systemctl enable slim
+  shell: systemctl enable slim creates=/usr/lib/systemd/system/slim.service
 
 - name: Configure SliM
   template: src=slim.conf.j2 dest=/etc/slim.conf owner=root mode=0644
@@ -32,4 +35,8 @@
 - name: Configure SliM lock
   template: src=slimlock.conf.j2 dest=/etc/slimlock.conf owner=root mode=0644
 
+- name: Get xorg-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/xorg-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/xorg-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
 # wmname

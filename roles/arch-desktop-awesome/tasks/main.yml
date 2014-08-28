@@ -1,0 +1,12 @@
+---
+# Awesome-wm on archlinux
+- name: Install awesome-wm
+  pacman: name={{ item }} state=present
+  with_items:
+    - awesome
+    - vicious
+
+- name: Get awesome-config
+  shell: vcsh clone git://github.com/vdemeester/awesome-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/awesome-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"

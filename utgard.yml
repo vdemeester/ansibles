@@ -10,4 +10,10 @@
     - nvidia
     - configurations
     - arch-desktop-base
+    - arch-desktop-awesome
+  tasks:
+    - name: "Update configurations"
+      shell: mr u
+      sudo: yes
+      sudo_user: "{{ admin_user }}"
 
