@@ -1,0 +1,21 @@
+---
+# Configuration management
+- name: install required softwares (pacman)
+  pacman: name=vcsh,mr,git,curl,wget state=present
+  when: ansible_pkg_mgr == "pacman"
+
+# FIXME verify that versions are ok
+- name: install required software (apt)
+  apt: name=vcsh,mr,git,curl,wget state=present
+  when: ansible_pkg_mgr == "apt"
+
+- name: bootstrap vcsh configuration (vcsh_home)
+  shell: SKIP_MRI=1 curl -sSL "https://raw.github.com/vdemeester/vcsh-home/bootstrap/bootstrap.sh" | bash creates="/home/{{ admin_user }}/.config/vcsh/repo.d/vcsh-home.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
+
+- name: first update after bootstrap (mr u)
+  shell: mr u
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
+  
