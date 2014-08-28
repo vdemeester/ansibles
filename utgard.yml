@@ -7,7 +7,7 @@
   roles:
     - commons
     - arch-repos
-    - configurations
     - nvidia
-    - arch-desktop
+    - configurations
+    - arch-desktop-base
 
