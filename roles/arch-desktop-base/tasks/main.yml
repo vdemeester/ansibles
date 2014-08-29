@@ -21,5 +21,6 @@
 - include: slim.yml tags=slim
 - include: configurations.yml tags=configuration
 - include: packages.yml
+- include: audios.yml tags=audio
 
 # wmname

@@ -1,0 +1,14 @@
+---
+# Audios (pulseaudio)
+- name: Install pulseaudio
+  pacman: name={{ item }} state=present
+  with_items:
+    - pulseaudio
+    - pulseaudio-alsa
+    - pulseaudio-ctl
+    - paprefs
+    - pavucontrol
+    - ponymix
+    - pasystray-git
+
+# configuration
