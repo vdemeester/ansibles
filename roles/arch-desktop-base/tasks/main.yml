@@ -10,7 +10,7 @@
   pacman: name=fontconfig-infinality-ultimate,freetype2-infinality-ultimate,cairo-infinality-ultimate,ibfonts-meta-base,ibfonts-meta-extended,ibfonts-meta-extended-lt,ttf-symbola state=present
 
 - name: Install main packages (xorg required)
-  pacman: name=xorg-server,xorg-server-utils,xorg-xinit,xorg-xinput,xorg-xev,xorg-xrdb,xorg-xset,xorg-xmessage,xdg-utils,xdg-user-dirs,xf86-input-evdev,sbr-keymaps,xterm,rxvt-unicode,scrot,polkit,unclutter state=present
+  pacman: name=xorg-server,xorg-server-utils,xorg-xinit,xorg-xinput,xorg-xev,xorg-xrdb,xorg-xset,xorg-xmessage,xdg-utils,xdg-user-dirs,xf86-input-evdev,sbr-keymaps,xterm,rxvt-unicode,scrot,feh,polkit,unclutter state=present
 
 - name: Add default keyboard configuration (fr)
   copy: src=10-keyboard.conf dest=/usr/share/X11/xorg.conf.d/10-keyboard.conf

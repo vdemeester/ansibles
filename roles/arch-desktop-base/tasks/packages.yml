@@ -6,6 +6,7 @@
     - git-annex-bin
     - keychain
     - profile-sync-daemon
+    - profile-cleaner
     - udiskie
     - libnotify
 
