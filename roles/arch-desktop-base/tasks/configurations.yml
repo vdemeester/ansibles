@@ -4,3 +4,8 @@
   shell: vcsh clone git://github.com/vdemeester/xorg-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/xorg-config.git/config"
   sudo: yes
   sudo_user: "{{ admin_user }}"
+
+- name: Get ssh-config (vcsh)
+  shell: vcsh clone git://github.com/vdemeester/ssh-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/ssh-config.git/config"
+  sudo: yes
+  sudo_user: "{{ admin_user }}"
