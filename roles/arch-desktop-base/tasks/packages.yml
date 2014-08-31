@@ -35,6 +35,7 @@
     - gajim
     - offlineimap
     - mu-git
+    - cacert-dot-org
 
 - name: Install multimedia packages
   pacman: name={{ item }} state=present
