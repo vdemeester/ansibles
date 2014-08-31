@@ -1,7 +1,3 @@
-[git-annex]
-Server = https://fichiers.schnouki.net/archlinux/git-annex/repo/$arch
-SigLevel = Optional TrustAll
-
 [haskell-core]
 Server = http://xsounds.org/~haskell/core/$arch
 
