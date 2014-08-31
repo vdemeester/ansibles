@@ -29,10 +29,12 @@
     - firefox
     - google-chrome
 
-- name: Install chat related packages
+- name: Install communication related packages
   pacman: name={{ item }} state=present
   with_items:
     - gajim
+    - offlineimap
+    - mu-git
 
 - name: Install multimedia packages
   pacman: name={{ item }} state=present
