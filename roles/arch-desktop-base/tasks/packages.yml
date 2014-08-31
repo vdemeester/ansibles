@@ -49,4 +49,6 @@
   with_items:
     - burp
     - cower
-    - asp
+    - asp-git
+    - ruby-fpm
+    - ruby-fpm-cookery
