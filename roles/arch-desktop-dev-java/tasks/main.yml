@@ -5,8 +5,14 @@
   with_items:
     - jdk7-openjdk
     - jdk8-openjdk
-    - jdk7-compat
+    - jdk
+    - jdk8-oracle
     - groovy
+
+- name: Remove deprecated stuff
+  pacman: name={{ item }} state=absent
+  with_items:
+    - jdk7-compat
 
 - name: Install build tools
   pacman: name={{ item }} state=present
