@@ -10,6 +10,7 @@
     - udiskie
     - libnotify
     - p7zip
+    - synergy
 
 - name: Install qt stuff
   pacman: name={{ item }} state=present
@@ -52,6 +53,7 @@
   pacman: name={{ item }} state=present
   with_items:
     - burp
+    - pkgbuild-introspection
     - cower
     - asp-git
     - ruby-fpm
