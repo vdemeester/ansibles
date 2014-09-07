@@ -11,6 +11,7 @@
     - libnotify
     - p7zip
     - synergy
+    - xclip
 
 - name: Install qt stuff
   pacman: name={{ item }} state=present
