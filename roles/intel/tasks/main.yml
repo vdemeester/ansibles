@@ -1,0 +1,14 @@
+---
+# Intel install
+# TODO add debian stuff
+- name: Install intel (pacman)
+  pacman: name={{ item }} state=present
+  with_items: 
+    - xf86-video-intel
+    - intel-dri
+    - libva-intel-driver
+    - libva
+  when: ansible_pkg_mgr == "pacman"
+
+- name: Copy 20-intel.conf
+  copy: src=20-intel.conf dest=/etc/X11/xorg.conf.d/20-intel.conf
