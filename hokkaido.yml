@@ -5,11 +5,12 @@
     - hostname: "utgard"
   roles:
     - commons
+    - btrfs
     - arch-repos
-    - intel
     - configurations
 #    - arch-laptop-common
-#    - arch-desktop-base
+    - arch-desktop-base
+    - intel
 #    - arch-desktop-awesome
 #    - arch-desktop-dev-common
 #    - arch-desktop-dev-java
