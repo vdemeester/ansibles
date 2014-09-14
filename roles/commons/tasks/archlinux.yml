@@ -10,3 +10,7 @@
 - name: Install backups (pacman)
   pacman: name=obnam state=present
   when: ansible_pkg_mgr == "pacman"
+
+- name: Enable cronie (systemd)
+  shell: systemctl enable cronie creates=/usr/lib/systemd/system/cronie.service
+  when: ansible_pkg_mgr == "pacman"
