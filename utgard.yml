@@ -17,7 +17,5 @@
     - ansible-host
   tasks:
     - name: "Update configurations"
-      shell: zsh -c "mr u"
-      sudo: yes
-      sudo_user: "{{ admin_user }}"
+      shell: cd $HOME && zsh -c "mr u"
 

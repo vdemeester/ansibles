@@ -1,0 +1,20 @@
+---
+- name: hokkaido playbook
+  hosts: hokkaido
+  vars:
+    - hostname: "utgard"
+  roles:
+    - commons
+    - arch-repos
+    - intel
+    - configurations
+#    - arch-laptop-common
+#    - arch-desktop-base
+#    - arch-desktop-awesome
+#    - arch-desktop-dev-common
+#    - arch-desktop-dev-java
+#    - arch-docker
+#    - ansible-host
+  tasks:
+    - name: "Update configurations"
+      shell: cd $HOME && zsh -c "mr u"
