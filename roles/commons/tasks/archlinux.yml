@@ -4,7 +4,17 @@
   when: ansible_pkg_mgr == "pacman"
 
 - name: Install minials (pacman)
-  pacman: name=vim,tmux,htop,tree,rsync,zsh,cronie state=present
+  pacman: name={{ item }} state=present
+  with_items:
+    - vim
+    - tmux
+    - htop
+    - tree
+    - rsync
+    - zsh
+    - cronie
+    - mc
+    - percol
   when: ansible_pkg_mgr == "pacman"
 
 - name: Install backups (pacman)
