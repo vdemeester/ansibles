@@ -44,6 +44,11 @@
 
 - name: Add default keyboard configuration (fr)
   copy: src=10-keyboard.conf dest=/usr/share/X11/xorg.conf.d/10-keyboard.conf
+  when: force_bepo == false
+
+- name: Add bepo default keyboard configuration
+  copy: src=10-keyboard-bepo.conf dest=/usr/share/X11/xorg.conf.d/10-keyboard.conf
+  when: force_bepo == true
 
 - name: Add Personal bepo keyboard configuration with typematrix
   copy: src=10-typematrix.conf dest=/usr/share/X11/xorg.conf.d/10-typematrix.conf
