@@ -1,0 +1,4 @@
+---
+# Nodejs stuff
+- name: Install nodejs
+  pacman: name=nodejs state=present

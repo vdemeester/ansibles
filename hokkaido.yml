@@ -15,6 +15,7 @@
     - arch-desktop-awesome
     - arch-desktop-dev-common
     - arch-desktop-dev-java
+    - arch-desktop-dev-javascript
     - arch-docker
     - ansible-host
   tasks:
