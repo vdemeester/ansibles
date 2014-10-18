@@ -4,13 +4,14 @@
   pacman: name={{ item }} state=absent
   with_items:
     - jdk7-compat
+    - jdk8-oracle
 
+# FIXME Add oraclejdk8-* instead of jdk8-oracle
 - name: Install language
   pacman: name={{ item }} state=present
   with_items:
     - jdk7-openjdk
     - jdk8-openjdk
-    - jdk8-oracle
     - groovy
 
 - name: Install build tools
