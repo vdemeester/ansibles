@@ -63,3 +63,9 @@
     - asp-git
     - ruby-fpm
     - ruby-fpm-cookery
+
+- name: Install latex stuff
+  pacman: name={{ item }} state=present
+  with_items:
+    - texlive-most
+    - texlive-lang
