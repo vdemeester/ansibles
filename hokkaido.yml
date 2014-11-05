@@ -2,7 +2,7 @@
 - name: hokkaido playbook
   hosts: hokkaido
   vars:
-    - hostname: "utgard"
+    - hostname: "hokkaido"
     - force_bepo: true
   roles:
     - commons
