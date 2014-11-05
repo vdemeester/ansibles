@@ -4,7 +4,14 @@
   when: ansible_pkg_mgr == "apt"
 
 - name: Install minimals (apt)
-  apt: name=vim,tmux,htop,tree,zsh,mc state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - vim
+    - tmux
+    - htop
+    - tree
+    - zsh
+    - mc
   when: ansible_pkg_mgr == "apt"
 
 - name: Install backups (apt)
