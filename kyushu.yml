@@ -1,0 +1,23 @@
+---
+- name: kyuhsu playbook
+  hosts: kyuhsu
+  vars:
+    - hostname: "kyushu"
+    - force_bepo: true
+  roles:
+    - commons
+    - btrfs
+    - arch-repos
+    - configurations
+    - arch-desktop-base
+    - arch-laptop-common
+    - intel
+    - arch-desktop-awesome
+    - arch-desktop-dev-common
+    - arch-desktop-dev-java
+    - arch-desktop-dev-javascript
+    - arch-docker
+    - ansible-host
+  tasks:
+    - name: "Thinkpad X220 scaling down scaling_max_freq to 2.4GHz"
+      copy: src=files/x220-scaling_max_freq.conf dest=/etc/tmpfiles.d/x220-scaling_max_freq.conf
