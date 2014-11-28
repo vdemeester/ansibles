@@ -14,11 +14,6 @@
     - zsh
     - cronie
     - mc
-    - percol
-  when: ansible_pkg_mgr == "pacman"
-
-- name: Install backups (pacman)
-  pacman: name=obnam state=present
   when: ansible_pkg_mgr == "pacman"
 
 - name: Enable cronie (systemd)

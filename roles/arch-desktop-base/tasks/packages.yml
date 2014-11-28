@@ -15,6 +15,7 @@
     - geeqie
     - gimp
     - percol
+    - obnam
 
 - name: Install qt stuff
   pacman: name={{ item }} state=present
