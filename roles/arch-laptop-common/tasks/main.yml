@@ -6,3 +6,8 @@
     - networkmanager
     - networkmanager-openvpn
     - network-manager-applet
+
+- name: "Install acpi & related"
+  pacman: name={{ item }} state=present
+  with_items:
+    - acpi
