@@ -21,3 +21,5 @@
   tasks:
     - name: "Thinkpad X220 scaling down scaling_max_freq to 2.4GHz"
       copy: src=files/x220-scaling_max_freq.conf dest=/etc/tmpfiles.d/x220-scaling_max_freq.conf
+    - name: "Thinkpad X220 default grub file"
+      copy: src=files/x220-default-grub dest=/etc/default/grub
