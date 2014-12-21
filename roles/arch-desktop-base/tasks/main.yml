@@ -18,7 +18,7 @@
     - ibfonts-meta-base
     - ibfonts-meta-extended
     - ibfonts-meta-extended-lt
-    - ttf-symbola
+    - ttf-symbola-ib
 
 - name: Install main packages (xorg required)
   pacman: name={{ item }} state=present
