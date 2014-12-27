@@ -10,6 +10,7 @@
     - arch-repos
     - configurations
     - arch-desktop-base
+    - arch-desktop-slim
     - arch-laptop-common
     - intel
     - arch-desktop-awesome
