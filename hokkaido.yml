@@ -25,3 +25,5 @@
       copy: src=files/x220-scaling_max_freq.conf dest=/etc/tmpfiles.d/x220-scaling_max_freq.conf
     - name: "Thinkpad X220 default grub file"
       copy: src=files/x220-default-grub dest=/etc/default/grub
+    - name: "Thinkpad X220 iwlwifi disable11n"
+      copy: src=files/x220-iwlwifi-disable11n.conf dest=/etc/modprobe.d/iwlifi-disable11n.conf
