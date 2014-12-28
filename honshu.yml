@@ -1,0 +1,27 @@
+---
+- name: honshu playbook
+  hosts: honshu
+  vars:
+    - hostname: "honshu"
+    - force_bepo: false
+  roles:
+    - commons
+    - btrfs
+    - arch-repos
+    - configurations
+    - arch-desktop-base
+    - arch-desktop-slim
+    - arch-laptop-common
+    - intel
+    - arch-desktop-awesome
+    - arch-desktop-dev-common
+    - arch-desktop-dev-java
+    - arch-desktop-dev-javascript
+    - arch-docker
+    - ansible-host
+  tasks:
+    - name: "Honshu Archlinux theme(s)"
+      pacman: name=honshu-themes state=present
+    - name: "Honshu default grub file"
+      copy: src=files/honshu-default-grub dest=/etc/default/grub
+
