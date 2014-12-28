@@ -24,4 +24,8 @@
       pacman: name=honshu-themes state=present
     - name: "Honshu default grub file"
       copy: src=files/honshu-default-grub dest=/etc/default/grub
-
+    - name: "Add xrandr startup script (dual-screen)"
+      copy: src=files/pre.xrandr.sh dest=/home/vincent/.xinitrc.d/pre.xrandr.sh mode=0755
+    - name: "Add background script (dual-screen)"
+      copy: src=files/post.honshu-background.sh dest=/home/vincent/.xinitrc.d/post.honshu-background.sh mode=0755
+      
