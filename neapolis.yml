@@ -1,0 +1,12 @@
+---
+- name: neapolis playbook
+  hosts: neapolis
+  vars:
+    - nfs_exports: {
+        "/home/share   10.0.22.0/24(rw,fsid=0,no_subtree_check,async,no_root_squash,crossmnt)",
+        "/home/vincent 10.0.22.0/24(rw,fsid=0,no_subtree_check,async,no_root_squash,crossmnt)",
+        "/home/git     10.0.22.0/24(rw,fsid=0,no_subtree_check,async,no_root_squash,crossmnt)"
+      }
+  roles:
+    - geerlingguy.nfs
+  tasks:
