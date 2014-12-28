@@ -2,6 +2,10 @@
 - name: create the admin user
   user: name="{{ admin_user }}" uid={{ admin_uid }} group=users shell=/bin/zsh generate_ssh_key=yes ssh_key_bits=2048
   tags: bootstrap
+
+- name: set default group for the admin user
+  user: name="{{ admin_user }}" groups=wheel,audio,video append=yes
+  tags: bootstrap
   
 - name: add ssh pubkey to ~/.ssh/authorized_keys for the admin user
   authorized_key: user="{{ admin_user }}" key="{{ item }}"
