@@ -1,0 +1,19 @@
+---
+- name: install nfs client
+  action: apt pkg=nfs-common state=present
+
+- name: ensure rpcbind is running (Ubuntu & Debian)
+  action: service name=rpcbind state=started enabled=yes
+
+- name: ensure {{nfs.client.root}} directory exists
+  action: file path={{nfs.client.root}} state=directory
+
+- shell: if [ -z "$nfsoptions" ]; then echo rw,_netdev,auto; else echo $nfsoptions; fi
+  register: _nfsopts
+  sudo: false
+  connection: local
+  
+- name: configure mount points
+  action: mount name={{ nfs.client.root }}/{{ item.key }} src={{ nfs.server.host }}:{{ nfs.server.root }}{{ item.key }} fstype=nfs opts={{ _nfsopts.stdout }} state=mounted
+  with_dict: nfs.exports
+    
