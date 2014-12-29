@@ -1,0 +1,9 @@
+---
+- name: carthage playbook
+  hosts: carthage
+  vars:
+    docker_opts : "--ip=127.0.0.1 --ip=10.0.22.103"
+  roles:
+    - tersmitten.docker
+    - nfs-client
+  tasks:
