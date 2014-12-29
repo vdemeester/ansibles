@@ -1,0 +1,18 @@
+---
+# meta file for docker
+galaxy_info:
+  author: Mischa ter Smitten
+  company: Oefenweb.nl B.V.
+  description: Set up the latest version of docker in Ubuntu systems
+  license: Apache v2.0
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+      - precise
+      - trusty
+  categories:
+    - development
+    - packaging
+    - system
+dependencies: []

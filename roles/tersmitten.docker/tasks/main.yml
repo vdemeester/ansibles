@@ -1,0 +1,137 @@
+---
+# tasks file for docker
+- name: install backported kernel
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items: docker_backported_kernel_packages
+  register: backported_kernel_result
+  when: "ansible_distribution_version == '12.04' and docker_backported_kernel_packages"
+  tags: [configuration, docker, docker-backported-kernel]
+
+- name: reboot
+  command: /sbin/shutdown -r now
+  async: 0
+  poll: 0
+  ignore_errors: true
+  register: backported_kernel_result
+  when: "(ansible_distribution_version == '12.04' and backported_kernel_result|changed)"
+  tags: [configuration, docker, docker-reboot]
+
+- name: wait for server to come online
+  local_action:
+    module: wait_for
+    host: "{{ ansible_ssh_host | default(inventory_hostname) }}"
+    port: "{{ ansible_ssh_port | default(22) }}"
+    delay: 15
+    timeout: 600
+    state: started
+  sudo: false
+  when: "(ansible_distribution_version == '12.04' and backported_kernel_result|changed)"
+  tags: [configuration, docker, docker-reboot]
+
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: docker_dependencies
+  when: docker_dependencies
+  tags: [configuration, docker, docker-dependencies]
+
+- name: detect https transport for apt
+  stat:
+    path: "{{ docker_apt_https_transport_file }}"
+  register: https_transport_file_stats
+  tags: [configuration, docker, docker-https-transport]
+
+- name: install https transport for apt
+  apt:
+    name: apt-transport-https
+    state: latest
+  when: not https_transport_file_stats.stat.exists
+  tags: [configuration, docker, docker-https-transport]
+
+- name: add public key
+  apt_key:
+    id: "{{ item.id }}"
+    url: "{{ item.url }}"
+    state: present
+  with_items: docker_apt_key
+  when: docker_apt_key
+  tags: [configuration, docker, docker-add-public-key]
+
+- name: add repository
+  apt_repository:
+    repo: "{{ item.type }} {{ item.url }} {{ item.component }}"
+    state: present
+    update_cache: yes
+  with_items: docker_repository
+  when: docker_repository
+  tags: [configuration, docker, docker-add-repository]
+
+- name: install
+  apt:
+    name: "{{ docker_package }}"
+    state: latest
+  notify: reload docker
+  tags: [configuration, docker, docker-install]
+
+- name: update configuration file - /etc/default/docker
+  template:
+    src: etc/default/docker.j2
+    dest: /etc/default/docker
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload docker
+  tags: [configuration, docker, docker-configuration]
+
+- name: start and enable service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  tags: [configuration, docker, docker-start-enable-service]
+
+- name: check ufw default file existence
+  stat:
+    path: "{{ docker_ufw_default_file }}"
+  register: ufw_default_file_stats
+  when: docker_manage_ufw
+  tags: [configuration, docker, docker-ufw]
+
+- name: change ufw default forward policy
+  lineinfile:
+    dest: "{{ docker_ufw_default_file }}"
+    regexp: "^DEFAULT_FORWARD_POLICY="
+    line: "DEFAULT_FORWARD_POLICY=\"ACCEPT\""
+  when: docker_manage_ufw and ufw_default_file_stats.stat.exists
+  tags: [configuration, docker, docker-ufw]
+
+- name: check updatedb file existence
+  stat:
+    path: "{{ docker_updatedb_file }}"
+  register: updatedb_file_stats
+  when: docker_manage_updatedb
+  tags: [configuration, docker, docker-updatedb]
+
+- name: disable indexing of /var/lib/docker
+  shell: /usr/bin/updatedb -e /var/lib/docker
+  when: docker_manage_updatedb and updatedb_file_stats.stat.exists
+  tags: [configuration, docker, docker-updatedb]
+
+- name: install docker-py requirements
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: docker_api_client_requirements
+  when: docker_install_api_client and docker_api_client_requirements
+  tags: [configuration, docker, docker-api-client]
+
+- name: install docker-py
+  pip:
+    name: docker-py
+    state: latest
+  when: docker_install_api_client
+  tags: [configuration, docker, docker-api-client]

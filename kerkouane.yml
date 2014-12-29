@@ -1,0 +1,8 @@
+---
+- name: kerkouane playbook
+  hosts: kerkouane
+  vars:
+    docker_opts : "--ip=127.0.0.1 --ip=10.0.22.102"
+  roles:
+    - tersmitten.docker
+  tasks:
