@@ -6,6 +6,10 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: debug NFS
+  debug: msg="Export {{ item.key }} is {{ item.value }} ({{ nfs.server.root }})"
+  with_dict: nfs.exports
+  
 - name: Copy exports file.
   template:
     src: exports.j2
