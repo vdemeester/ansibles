@@ -1,0 +1,3 @@
+---
+- name: Install sslh (debian)
+  apt: name=sslh state=present

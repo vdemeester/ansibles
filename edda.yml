@@ -1,0 +1,6 @@
+---
+- name: edda playbook
+  hosts: edda
+  roles:
+    - sslh
+  tasks:

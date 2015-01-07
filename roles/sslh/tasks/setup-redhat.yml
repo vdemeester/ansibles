@@ -1,0 +1,3 @@
+---
+- name: Install sslh (redhat)
+  yum: name=sslh state=installed
