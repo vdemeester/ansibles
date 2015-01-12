@@ -4,11 +4,18 @@
   vars:
     - hostname: "honshu"
     - force_bepo: false
+    - sshd:
+        Compression: true
+        PermitRootLogin: false
+        Match:
+          - Condition: "Group user"
+            X11Forwarding: yes
   roles:
     - commons
     - btrfs
     - arch-repos
     - configurations
+    - willshersystems.sshd
     - arch-desktop-base
     - arch-desktop-slim
     - arch-laptop-common
