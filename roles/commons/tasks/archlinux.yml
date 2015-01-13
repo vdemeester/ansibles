@@ -15,6 +15,7 @@
     - cronie
     - glances
     - mc
+    - pkgfile
   when: ansible_pkg_mgr == "pacman"
 
 - name: Enable cronie (systemd)
