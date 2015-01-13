@@ -1,6 +1,24 @@
 ---
 - name: edda playbook
   hosts: edda
+  vars:
+    sslh:
+      verbose: False
+      listen:
+        - host: 0.0.0.0
+          port: 443
+      protocols:
+        - name: ssh
+          service: ssh
+          host: localhost
+          port: 2220
+          probe: "\"builtin\""
+        - name: ssl
+          host: localhost
+          port: 8443
+          probe: "[ \"\" ]"
+          service: 
+      ontimeout: ssh
   roles:
     - sslh
   tasks:
