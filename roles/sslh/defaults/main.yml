@@ -1,0 +1,7 @@
+---
+sslh:
+  verbose: false
+  foreground: false
+  inetd: false
+  numeric: false
+  timeout: 2

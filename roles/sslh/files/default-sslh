@@ -1,0 +1,10 @@
+# Default options for sslh initscript
+# sourced by /etc/init.d/sslh
+
+# Run sslh
+RUN=yes
+
+# binary to use: forked (sslh) or single-thread (sslh-select) version
+DAEMON=/usr/sbin/sslh
+
+DAEMON_OPTS="--user sslh -F /etc/sslh.cfg --pidfile /var/run/sslh/sslh.pid"

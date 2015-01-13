@@ -1,0 +1,28 @@
+# {{ ansible_managed }}
+# List of general options
+verbose: {{ sslh.verbose }};
+foreground: {{ sslh.foreground }};
+inetd: {{ sslh.inetd }};
+numeric: {{ sslh.numeric }};
+timeout: {{ sslh.timeout }};
+
+# List of interfaces
+listen:
+(
+{% for listen in sslh.listen %}
+   { host: "{{ listen.host }}"; port: "{{ listen.port }}" }
+{% endfor %}
+);
+
+# List of protocols
+protocols:
+(
+{% for service in sslh.protocols %}
+   { name: "{{ service.name }}", {% if service.service %}service: "{{ service.service }}", {% endif %} host: "{{ service.host }}", port: "{{ service.port }}"{% if service.probe %}, probe: {{ service.probe }} {% endif %} }{% if not loop.last %},{% endif %}
+   
+{% endfor %}
+);
+
+{% if sslh.ontimeout %}
+on-timeout: "{{ sslh.ontimeout }}"
+{% endif %}
