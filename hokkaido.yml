@@ -19,6 +19,7 @@
     - arch-desktop-dev-javascript
     - arch-docker
     - ansible-host
+    - adham.helal.msmtp
   tasks:
     - name: "Thinkpad X220 Archlinux theme(s)"
       pacman: name=hokkaido-themes state=present
