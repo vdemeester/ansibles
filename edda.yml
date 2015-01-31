@@ -22,3 +22,12 @@
   roles:
     - sslh
   tasks:
+    - name: Set network stuff in systctl
+      sysctl: name={{ item }} value=1 state=present sysctl_file=/etc/sysctl.conf reload=yes
+      with_items:
+        - net.ipv4.conf.all.rp_filter
+        - net.ipv4.icmp_echo_ignore_broadcasts
+        - net.ipv4.ip_forward
+        - net.ipv6.conf.all.forwarding
+        - net.ipv4.conf.default.proxy_arp
+        
