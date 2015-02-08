@@ -13,11 +13,11 @@
           host: localhost
           port: 2220
           probe: "\"builtin\""
-        - name: ssl
-          host: localhost
-          port: 8443
-          probe: "[ \"\" ]"
-          service: 
+#        - name: ssl
+#          host: localhost
+#          port: 8443
+#          probe: "[ \"\" ]"
+#          service: 
       ontimeout: ssh
   roles:
     - sslh
