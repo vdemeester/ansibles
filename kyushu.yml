@@ -3,6 +3,7 @@
   hosts: kyushu
   vars:
     - hostname: "kyushu"
+    - docker_opts: -H tcp://0.0.0.0:2375
   roles:
     - tersmitten.docker
 #    - commons
