@@ -12,6 +12,7 @@
             X11Forwarding: yes
   roles:
     - commons
+    - common-users
     - btrfs
     - arch-repos
     - configurations
@@ -27,6 +28,7 @@
     - arch-docker
     - ansible-host
     - adham.helal.msmtp
+    - synergy
   tasks:
     - name: "Honshu Archlinux theme(s)"
       pacman: name=honshu-themes state=present
