@@ -3,7 +3,7 @@
   hosts: kyushu
   vars:
     - hostname: "kyushu"
-    - docker_opts: -H tcp://0.0.0.0:2375
+    - docker_opts: -H tcp://0.0.0.0:2375 --label storage=disk --label type=thinkpad$
   roles:
     - tersmitten.docker
 #    - commons

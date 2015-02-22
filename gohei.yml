@@ -3,7 +3,7 @@
   hosts: gohei
   vars:
     - hostname: "gohei"
-    - docker_opts: -H tcp://0.0.0.0:2375
+    - docker_opts: -H tcp://0.0.0.0:2375 --label storage=ssd --label type=eeepc
   roles:
     - tersmitten.docker
 #    - commons
