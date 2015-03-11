@@ -1,6 +1,5 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
-- include: users.yml tags=users
 - include: archlinux.yml tags=archlinux
 - include: apt.yml tags=apt
 

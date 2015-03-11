@@ -18,8 +18,19 @@ carthage
 utgard
 hokkaido
 honshu
+kyushu
+gohei
 
 [archlinux]
 utgard
 hokkaido
 honshu
+
+[ubuntu]
+kyushu
+ubuntu
+carthage
+kerkouane
+
+[debian]
+neapolis

@@ -3,6 +3,10 @@
   user: name="{{ admin_user }}" uid={{ admin_uid }} group=users shell=/bin/zsh generate_ssh_key=yes ssh_key_bits=2048
   tags: bootstrap
 
+- name: create the wheel group
+  group: name=wheel state=present
+  tags: bootstrap
+  
 - name: set default group for the admin user
   user: name="{{ admin_user }}" groups=wheel,audio,video append=yes
   tags: bootstrap
