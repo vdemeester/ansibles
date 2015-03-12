@@ -7,3 +7,5 @@
     - tersmitten.docker
     - nfs-client
   tasks:
+    - name: Install git-annex
+      apt: name=git-annex state=present

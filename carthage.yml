@@ -8,4 +8,4 @@
     - nfs-client
   tasks:
     - name: Install git-annex
-      apt: name:git-annex state=present
+      apt: name=git-annex state=present
