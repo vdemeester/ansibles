@@ -12,6 +12,7 @@
     - tree
     - rsync
     - zsh
+    - zsh-completions
     - cronie
     - glances
     - mc
