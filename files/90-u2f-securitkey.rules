@@ -1,0 +1,2 @@
+ATTRS{idVendor}=="1050", TAG+="uaccess"
+ATTRS{idVendor}=="2581", ATTRS{idProduct}=="f1d0", TAG+="uaccess"
