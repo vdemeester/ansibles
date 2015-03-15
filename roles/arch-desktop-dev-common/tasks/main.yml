@@ -10,3 +10,5 @@
     - lnav
     - cdrkit
     - squashfs-tools
+    - vagrant
+    - virtualbox
