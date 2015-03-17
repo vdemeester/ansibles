@@ -6,5 +6,11 @@
     - docker_opts: -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=disk --label type=thinkpad$
   roles:
     - tersmitten.docker
-#    - commons
+  tasks:
+    - name: Add user to docker group
+      user:
+        name: "{{ admin_user }}"
+        groups: docker
+        append: yes
+
 
