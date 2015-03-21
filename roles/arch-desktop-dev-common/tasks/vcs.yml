@@ -8,6 +8,7 @@
     - tig
     - mercurial
     - darcs
+    - bzr
 
 - name: Get git-config (vcsh)
   shell: vcsh clone git://github.com/vdemeester/git-config.git creates="/home/{{ admin_user }}/.config/vcsh/repo.d/git-config.git/config"
