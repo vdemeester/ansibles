@@ -56,5 +56,6 @@
 - include: configurations.yml tags=configuration
 - include: packages.yml
 - include: audios.yml tags=audio
-
+- include: network.yml tags=network
+  
 # wmname
