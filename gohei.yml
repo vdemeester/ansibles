@@ -3,7 +3,7 @@
   hosts: gohei
   vars:
     - hostname: "gohei"
-    - docker_opts: -H unix://var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=ssd --label type=eeepc
+    - docker_opts: -H unix://var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=ssd --label typelaptop --label model=eeepc
   roles:
     - tersmitten.docker
   tasks:
