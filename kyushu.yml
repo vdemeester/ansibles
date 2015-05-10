@@ -3,7 +3,7 @@
   hosts: kyushu
   vars:
     - hostname: "kyushu"
-    - docker_opts: -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=disk --label type=laptop --label model=thinkpad
+    - docker_opts: "{{ docker.default_opts }} {{ docker.local_opts }} --label storage=disk --label type=laptop --label model=thinkpad"
   roles:
     - tersmitten.docker
   tasks:

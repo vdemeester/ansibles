@@ -2,7 +2,7 @@
 - name: carthage playbook
   hosts: carthage
   vars:
-    docker_opts : "--ip=127.0.0.1 --ip={{ carthage_ip }}"
+    docker_opts : "{{ docker.default_opts }} -H tcp://{{ carthage_ip }}:2375 {{ docker.online_opts }} --label visibility=private"
   roles:
     - tersmitten.docker
     - nfs-client

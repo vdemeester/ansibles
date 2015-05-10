@@ -2,7 +2,7 @@
 - name: kerkouane playbook
   hosts: kerkouane
   vars:
-    docker_opts : "--ip=127.0.0.1 --ip={{ kerkouane_ip }}"
+    docker_opts : "{{ docker.default_opts }} -H tcp://{{ kerkouane_ip }}:2375 {{ docker.online_opts }} --label visibility=public"
   roles:
     - tersmitten.docker
     - nfs-client
