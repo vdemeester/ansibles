@@ -1,16 +1,6 @@
 ---
 - name: honshu playbook
   hosts: honshu
-  vars:
-    - hostname: "honshu"
-    - force_bepo: false
-    - sshd:
-        Compression: true
-        PermitRootLogin: false
-        Match:
-          - Condition: "Group user"
-            X11Forwarding: yes
-    - docker_opts: -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=disk --label type=laptop --label model=dell
   roles:
     - commons
     - common-users
