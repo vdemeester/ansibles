@@ -1,9 +1,6 @@
 ---
 - name: gohei playbook
   hosts: gohei
-  vars:
-    - hostname: "gohei"
-    - docker_opts: "{{ docker.default_opts }} {{ docker.local_opts }} --label storage=ssd --label type=laptop --label model=eeepc"
   roles:
     - tersmitten.docker
   tasks:
