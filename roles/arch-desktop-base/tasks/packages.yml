@@ -18,6 +18,16 @@
     - obnam
     - s3cmd
 
+- name: Language stuff (correction/dictionnaries)
+  pacman: name={{ item }} state=present
+  with_items:
+    - aspell
+    - aspell-fr
+    - aspell-en
+    - hunspell
+    - hunspell-fr
+    - hunspell-en
+    
 - name: Install qt stuff
   pacman: name={{ item }} state=present
   with_items:
