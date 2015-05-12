@@ -15,8 +15,8 @@
     - xclip
     - geeqie
     - gimp
-    - percol
     - obnam
+    - s3cmd
 
 - name: Install qt stuff
   pacman: name={{ item }} state=present
@@ -57,6 +57,7 @@
     - mencoder
     - mpc
     - ncmpcpp
+    - abcde
 
 - name: Install archlinux stuff
   pacman: name={{ item }} state=present

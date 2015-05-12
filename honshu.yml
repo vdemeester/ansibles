@@ -16,11 +16,10 @@
     - arch-desktop-dev-common
     - arch-desktop-dev-java
     - arch-desktop-dev-javascript
-    - arch-desktop-go
+    - arch-desktop-dev-go
     - arch-docker
     - ansible-host
     - adham.helal.msmtp
-    - synergy
   tasks:
     - name: "Honshu Archlinux theme(s)"
       pacman: name=honshu-themes state=present
