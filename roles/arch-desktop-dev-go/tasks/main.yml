@@ -1,0 +1,5 @@
+---
+- name: Install golang
+  pacman: name={{ item }} state=present
+  with_items:
+    - go
