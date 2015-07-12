@@ -1,3 +1,0 @@
----
-# Install javascript stuff
-- include: node.yml tags=node
