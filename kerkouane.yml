@@ -1,8 +1,6 @@
 ---
 - name: kerkouane playbook
   hosts: kerkouane
-  vars:
-    docker_opts : "--ip=127.0.0.1 --ip={{ kerkouane_ip }}"
   roles:
     - tersmitten.docker
     - nfs-client

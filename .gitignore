@@ -3,3 +3,5 @@ roles/tersmitten.docker
 roles/willshersystems.sshd
 roles/adham.helal.msmtp
 roles/willshersystems.apt
+group_vars
+host_vars

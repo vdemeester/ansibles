@@ -1,10 +1,6 @@
 ---
 - name: hokkaido playbook
   hosts: hokkaido
-  vars:
-    - hostname: "hokkaido"
-    - force_bepo: true
-    - docker_opts: -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=ssd --label type=laptop --label model=thinkpad
   roles:
     - commons
     - common-users

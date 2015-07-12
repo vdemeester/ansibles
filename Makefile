@@ -5,3 +5,4 @@ install:
 gitignore:
 	@echo ">> Update gitignore"
 	ansible-galaxy -p roles list | awk  -F "," '{ print $$1 }' | awk '{ print "roles/"$$2 }' > .gitignore
+	cat .gitignore.manual >> .gitignore

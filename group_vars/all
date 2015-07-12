@@ -10,3 +10,7 @@ admin_uid: 1000
 
 # the path on the *controlling* machine to the user's ssh pubkey
 ssh_pubkey: "{{ lookup('env','HOME') }}/.ssh/id_rsa.pub"
+
+# docker default opts
+docker:
+    default_opts: "-H unix://var/run/docker.sock"

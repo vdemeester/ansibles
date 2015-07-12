@@ -1,7 +1,6 @@
 ---
 - name: neapolis playbook
   hosts: neapolis
-  vars:
   roles:
     - nfs-server
   tasks:

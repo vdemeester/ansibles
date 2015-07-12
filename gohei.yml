@@ -1,9 +1,6 @@
 ---
 - name: gohei playbook
   hosts: gohei
-  vars:
-    - hostname: "gohei"
-    - docker_opts: -H unix://var/run/docker.sock -H tcp://0.0.0.0:2375 --label storage=ssd --label type=laptop --label model=eeepc
   roles:
     - tersmitten.docker
   tasks:
