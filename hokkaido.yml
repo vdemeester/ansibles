@@ -18,8 +18,8 @@
     - arch-desktop-awesome
     - arch-desktop-dev-common
     - arch-desktop-dev-java
-    - arch-desktop-dev-javascript
     - arch-docker
+    - arch-virtualbox
     - ansible-host
     - adham.helal.msmtp
   tasks:
