@@ -1,0 +1,13 @@
+---
+# Virtualbox on Archlinux
+- name: Install virtualbox & vagrant
+  pacman: name={{ item }} state=present
+  with_items:
+    - virtualbox
+    - vagrant
+
+- name: Configure virtualbox modules
+  copy: src=virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf
+
+- name: Add admin user to the vboxusers
+  user: name={{ admin_user }} groups=vboxusers append=yes
