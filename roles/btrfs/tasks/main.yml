@@ -1,11 +1,10 @@
 ---
 # BTRFS related stuff
-# TODO debian stuff
 - name: Install packages (pacman)
   pacman: name={{ item }} state=present
   with_items:
     - btrfs-progs
     - snapper
   when: ansible_pkg_mgr == "pacman"
-
-# TODO snapper configurations  
+  tags:
+    - bootstrap

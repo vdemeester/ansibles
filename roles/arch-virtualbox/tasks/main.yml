@@ -5,9 +5,15 @@
   with_items:
     - virtualbox
     - vagrant
+  tags:
+    - minimal
 
 - name: Configure virtualbox modules
   copy: src=virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf
+  tags:
+    - minimal
 
 - name: Add admin user to the vboxusers
   user: name={{ admin_user }} groups=vboxusers append=yes
+  tags:
+    - minimal

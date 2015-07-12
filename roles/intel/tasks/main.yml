@@ -9,6 +9,10 @@
     - libva-intel-driver
     - libva
   when: ansible_pkg_mgr == "pacman"
+  tags:
+    - minimal
 
 - name: Copy 20-intel.conf
   copy: src=20-intel.conf dest=/etc/X11/xorg.conf.d/20-intel.conf
+  tags:
+    - minimal

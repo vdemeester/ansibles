@@ -2,6 +2,8 @@
 - name: Install ntp (pacman)
   pacman: name=ntp state=present
   when: ansible_pkg_mgr == "pacman"
+  tags:
+    - minimal
 
 - name: Install minials (pacman)
   pacman: name={{ item }} state=present
@@ -18,7 +20,11 @@
     - mc
     - pkgfile
   when: ansible_pkg_mgr == "pacman"
+  tags:
+    - minimal
 
 - name: Enable cronie (systemd)
   shell: systemctl enable cronie creates=/usr/lib/systemd/system/cronie.service
   when: ansible_pkg_mgr == "pacman"
+  tags:
+    - minimal

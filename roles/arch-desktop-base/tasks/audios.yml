@@ -5,10 +5,15 @@
   with_items:
     - pulseaudio
     - pulseaudio-alsa
-    - pulseaudio-ctl
     - paprefs
     - pavucontrol
     - ponymix
-    - pasystray-git
+  tags:
+    - minimal
 
+- name: Install additionnals
+  pacman: name={{ item }} state=present
+  with_items:
+    - pulseaudio-ctl
+    - pasystray-git
 # configuration

@@ -12,7 +12,8 @@
   with_items:
     - jdk7-openjdk
     - jdk8-openjdk
-    - groovy
+  tags:
+    - minimal
 
 - name: Install build tools
   pacman: name={{ item }} state=present

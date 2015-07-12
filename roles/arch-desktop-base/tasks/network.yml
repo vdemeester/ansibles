@@ -5,9 +5,15 @@
   with_items:
     - avahi
     - nss-mdns
+  tags:
+    - minimal
 
 - name: Setup nsswitch
   template: src=etc-nsswitch.conf.j2 dest=/etc/nsswitch.conf owner=root mode=0644
+  tags:
+    - minimal
 
 - name: Enable avahi-daemon
   service: name=avahi-daemon enabled=yes state=started
+  tags:
+    - minimal

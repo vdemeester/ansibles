@@ -1,10 +1,12 @@
 ---
 # Docker on Archlinux
+# TODO Add docker_opts to docker.service :P
 - name: Install docker & stuff
   pacman: name={{ item }} state=present
   with_items:
     - docker
-    - fig
+  tags:
+    - minimal
 
 - name: Add user to docker
   user: name={{ admin_user }} groups=docker append=yes

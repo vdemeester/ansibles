@@ -1,3 +1,3 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
-- include: users.yml tags=users
+- include: users.yml tags=users,minimal

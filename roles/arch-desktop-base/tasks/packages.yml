@@ -3,21 +3,25 @@
 - name: Install utilities
   pacman: name={{ item }} state=present
   with_items:
-    - git-annex-bin
     - keychain
-    - profile-sync-daemon
-    - profile-cleaner
     - udiskie
     - libnotify
     - p7zip
     - unrar
-    - synergy
     - xclip
     - geeqie
     - gimp
-    - percol
-    - obnam
+  tags:
+    - minimal
 
+- name: Install additionnal utilities
+  pacman: name={{ item }} state=present
+  with_items:
+    - git-annex-bin
+    - profile-sync-daemon
+    - profile-cleaner
+    - obnam
+    
 - name: Install qt stuff
   pacman: name={{ item }} state=present
   with_items:
@@ -34,19 +38,28 @@
   pacman: name={{ item }} state=present
   with_items:
     - firefox
+  tags:
+    - minimal
+
+- name: Install additionnal web related packages
+  pacman: name={{ item }} state=present
     - google-chrome
 
 - name: Install communication related packages
   pacman: name={{ item }} state=present
   with_items:
     - gajim
+  tags:
+    - minimal
+
+- name: Install additionnal communication related packages
+  pacman: name={{ item }} state=present
+  with_items:
     - offlineimap
     - mu-git
-    - xmlstarlet
     - cacert-dot-org
-    - html2text
     - msmtp
-    - s-nail
+    
 
 - name: Install multimedia packages
   pacman: name={{ item }} state=present
@@ -63,6 +76,12 @@
   with_items:
     - burp
     - pkgbuild-introspection
+  tags:
+    - minimal
+
+- name: Install additionnal archlinux stuff
+  pacman: name={{ item }} state=present
+  with_items:
     - cower
     - asp-git
     - ruby-fpm

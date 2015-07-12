@@ -6,13 +6,24 @@
     - networkmanager
     - networkmanager-openvpn
     - network-manager-applet
+  tags:
+    - minimal
 
 - name: "Install acpi & related"
   pacman: name={{ item }} state=present
   with_items:
     - acpi
+  tags:
+    - minimal
 
 - name: "Install nfs-utils"
   pacman: name={{ item }} state=present
   with_items:
     - nfs-utils
+  tags:
+    - minimal
+
+- name: Enable Networkmanager
+  shell: systemctl enable NetworkManager creates=/usr/lib/systemd/system/NetworkManager.service
+  tags:
+    - minimal
