@@ -22,15 +22,12 @@
     - arch-desktop-slim
     - arch-laptop-common
     - intel
-    - arch-desktop-awesome
+    - arch-desktop-i3
     - arch-desktop-dev-common
     - arch-desktop-dev-java
-    - arch-desktop-dev-javascript
-    - arch-desktop-go
     - arch-docker
+    - arch-virtualbox
     - ansible-host
-    - adham.helal.msmtp
-    - synergy
   tasks:
     - name: "Honshu Archlinux theme(s)"
       pacman: name=honshu-themes state=present
