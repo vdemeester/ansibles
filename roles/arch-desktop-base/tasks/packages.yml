@@ -90,7 +90,6 @@
 - name: Install archlinux stuff
   pacman: name={{ item }} state=present
   with_items:
-    - burp
     - pkgbuild-introspection
   tags:
     - minimal
