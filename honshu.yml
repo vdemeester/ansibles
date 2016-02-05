@@ -4,7 +4,6 @@
   roles:
     - commons
     - common-users
-    - btrfs
     - arch-repos
     - configurations
     - willshersystems.sshd

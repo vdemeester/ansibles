@@ -10,7 +10,7 @@
     - arch-desktop-slim
     - arch-laptop-common
     - intel
-    - arch-desktop-awesome
+    - arch-desktop-i3
     - arch-desktop-dev-common
     - arch-desktop-dev-java
     - arch-docker

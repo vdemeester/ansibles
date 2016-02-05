@@ -17,7 +17,7 @@ carthage
 # raspoutine
 utgard
 hokkaido
-honshu
+honshu ansible_host=192.168.12.47
 kyushu
 gohei
 

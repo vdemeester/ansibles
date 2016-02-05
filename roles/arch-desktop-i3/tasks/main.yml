@@ -1,6 +1,6 @@
 ---
 # Awesome-wm on archlinux
-- name: Install ai3wm
+- name: Install i3wm
   pacman: name={{ item }} state=present
   with_items:
     - i3-wm

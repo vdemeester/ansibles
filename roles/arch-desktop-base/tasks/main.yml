@@ -64,6 +64,8 @@
 
 - name: Add Personal bepo keyboard configuration with typematrix
   copy: src=10-typematrix.conf dest=/usr/share/X11/xorg.conf.d/10-typematrix.conf
+  tags:
+    - minimal
 
 - include: configurations.yml tags=configuration
 - include: packages.yml
